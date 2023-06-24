@@ -4,6 +4,9 @@ const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 require('dotenv').config();
+const { sequelize } = require('./db');
+
+const turnosRoutes = require('./routes/turnos.routes');
 
 const app = express();
 
@@ -22,5 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Listen
 app.listen(PORT, () => {
+    sequelize.authenticate(() => console.log('Running DB'));
     console.log("Server listening in http://localhost:"+PORT);
 })

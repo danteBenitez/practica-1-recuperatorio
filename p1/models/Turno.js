@@ -4,7 +4,7 @@ const Turno = sequelize.define('turno',{
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: false,
+        primaryKey: true,
     },
     fecha_turno: {
         type: DataTypes.DATE,
@@ -22,6 +22,10 @@ const Turno = sequelize.define('turno',{
         type: DataTypes.INTEGER,
         allowNull: false
     }
+}, {
+    timestamps: true,
+    paranoid: true,
+    tablename: 'turno'
 })
 
 Turno.sync({ force: true });

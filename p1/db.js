@@ -10,6 +10,7 @@ const {
     DB_PORT
 } = process.env;
 
+console.log(DB_NAME);
 
 const sequelize = new Sequelize({
     database: DB_NAME,
