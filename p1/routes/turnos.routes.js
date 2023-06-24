@@ -15,7 +15,7 @@ const router = Router();
 // Rutas de renderización
 router.get('/', renderizarIndex);
 
-router.get('/editar', renderizarEditar);
+router.get('/editar/:id', renderizarEditar);
 router.get('/crear', renderizarCrear);
 
 // Rutas de API

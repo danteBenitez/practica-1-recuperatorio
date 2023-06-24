@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<main class="text-center w-100 container">
+    <h1 class="display-4">Lista de turnos</h1>
+    <article class="w-100 m-1 d-flex justify-content-center align-items-center">
+        <form data-id="<% id %>">
+            <div class="mb-3">
+              <label for="fechaTurno" class="form-label">Ingrese la fecha del turno a registrar</label>
+              <input type="date" class="form-control" name="fechaTurno">
+            </div>
+            <div class="mb-3">
+                <label for="nombrePaciente" class="form-label">Ingrese su nombre completo: </label>
+                <input type="text" class="form-control" name="nombrePaciente">
+            </div>
+            <div class="mb-3">
+                <label for="dniPaciente" class="form-label">Ingrese número de documento: </label>
+                <input type="text" class="form-control" name="dniPaciente">
+            </div>
+            <div class="mb-3">
+                <label for="telefonoPaciente" class="form-label">Ingrese número de teléfono: </label>
+                <input type="tel" class="form-control" name="telefonoPaciente">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </article>
+</main>
+
+<script src="/js/editar.js">
+</script>
+
+<% include('partials/footer') %>

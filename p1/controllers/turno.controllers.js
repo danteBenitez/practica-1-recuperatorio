@@ -15,7 +15,7 @@ const obtenerTurnos = async (req, res) => {
     }
 }
   
-const obtenerTurno = async (_req, res) => {
+const obtenerTurno = async (req, res) => {
 
     const { id } = req.params;
 

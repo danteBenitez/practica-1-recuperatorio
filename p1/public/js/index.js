@@ -88,7 +88,7 @@
                     <td>${turno.telefono_paciente}</td>
                     <td class="d-flex flex-column">
                         <button onclick=eliminarTurno(${turno.id}) class="btn btn-warning">Eliminar</button>
-                        <a href="/actualizar/${turno.id}" class="btn btn-danger">Actualizar</button>
+                        <a href="/editar/${turno.id}" class="btn btn-danger">Actualizar</button>
                     </td>  
                     
                 </tr>
