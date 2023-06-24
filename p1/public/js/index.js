@@ -4,10 +4,14 @@
 
         const mostrarTurnos = async () => {
 
+            while (contenedorTurnos.hasChildNodes()) {
+                contenedorTurnos.removeChild(contenedorTurnos.firstChild);
+            }
+
             const turnos = await obtenerTurnos();
 
             if (turnos.length == 0) contenedorTurnos.innerHTML = "<tr class=\"text-center\">No hay turnos registrados</tr>"
-            console.log(turnos)
+
             contenedorTurnos.innerHTML += turnos.map(turno => {
                 return renderizarTurno(turno);
             }).join('');
@@ -63,16 +67,17 @@
 
         const eliminarTurno = async (id) => {
 
+
             try {
                 const respuesta = await fetch(`/api/${id}`, {
                     method: 'DELETE'
                 });
-
+                console.log(respuesta)
                 if (respuesta.status != 200) throw ({ message: 'Error al eliminar el turno '})
 
                 const turnoElimnado = await respuesta.json();
-
-                return turnoElimnado;
+                console.log(turnoElimnado);
+                mostrarTurnos();
             } catch(err) {
                 console.log(err);
                 alert(err.message);
@@ -87,7 +92,7 @@
                     <td>${turno.dni_paciente}</td>
                     <td>${turno.telefono_paciente}</td>
                     <td class="d-flex flex-column">
-                        <button onclick=eliminarTurno(${turno.id}) class="btn btn-warning">Eliminar</button>
+                        <button onclick="eliminarTurno(${turno.id})" class="btn btn-warning">Eliminar</button>
                         <a href="/editar/${turno.id}" class="btn btn-danger">Actualizar</button>
                     </td>  
                     

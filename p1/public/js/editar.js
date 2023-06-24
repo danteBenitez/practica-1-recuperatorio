@@ -14,11 +14,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (respuesta.status == 404) {
             console.error('No se encontró el turno');
             window.location.assign('/');
+            return;
         }
 
-        const {turnos}= await respuesta.json();
-        
-        const turno = turnos[0];
+        const {turno}= await respuesta.json();
 
         fechaTurno.value = turno.fecha_turno.slice(0, -8);
         nombrePaciente.value = turno.nombre_paciente;

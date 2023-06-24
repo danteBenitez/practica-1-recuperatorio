@@ -92,12 +92,12 @@ const crearTurno = async (req, res) => {
       }
 }
 
-const eliminarTurno = async (_req, res) => {
-    const { id } = req.params.id;
+const eliminarTurno = async (req, res) => {
+    const { id } = req.params;
 
     try {
           const turno = await Turno.findByPk(id);
-  
+
           if (!turno) throw ({ status: 404, msg: 'No se encontró el turno'});
         
           await turno.destroy();
