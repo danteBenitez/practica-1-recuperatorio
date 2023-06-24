@@ -1,6 +1,6 @@
 const Turno = require('../models/Turno');
 
-const obtenerTurnos = async (_req, res) => {
+const obtenerTurnos = async (req, res) => {
   try {
         const turnos = await Turno.findAll();
 
@@ -65,7 +65,7 @@ const actualizarTurno = async (_req, res) => {
       }
 }
 
-const crearTurno = async (_req, res) => {
+const crearTurno = async (req, res) => {
     const {  
         fecha_turno ,
         nombre_paciente,
@@ -82,13 +82,6 @@ const crearTurno = async (_req, res) => {
           })
   
           if (!turno) throw ({ status: 404, msg: 'No se encontró el turno'});
-        
-          await turno.update({
-            fecha_turno,
-            nombre_paciente,
-            dni_paciente,
-            telefono_paciente
-          });
 
           res.json({
               turno

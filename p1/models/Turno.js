@@ -5,6 +5,7 @@ const Turno = sequelize.define('turno',{
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
+        defaultValue: Math.floor(Math.random()) * 10
     },
     fecha_turno: {
         type: DataTypes.DATE,
@@ -28,4 +29,4 @@ const Turno = sequelize.define('turno',{
     tablename: 'turno'
 })
 
-Turno.sync({ force: true });
+module.exports = Turno;

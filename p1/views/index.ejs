@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<main class="text-center w-100 container">
+    <h1 class="display-4">Lista de turnos</h1>
+    <div class="btn-group">
+        <a href="/crear" class="btn btn-primary">
+            Nuevo
+        </a>
+    </div>
+    <article class="w-100 m-1 d-flex justify-content-center align-items-center">
+        <table class="table table-primary">
+            <tr class="">
+                <td>Fecha</td>    
+                <td>Nombre del paciente</td>
+                <td>DNI del paciente</td>
+                <td>Teléfono del paciente</td>
+                <td>Acciones</td>
+            </tr>
+            <tbody id="contenedor-turnos">
+
+            </tr>
+        </table>
+    </article>
+</main>
+
+<script src="/js/index.js"></script>
+
+<% include('partials/footer') %>

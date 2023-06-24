@@ -12,6 +12,9 @@ const app = express();
 
 const PORT = process.env.PORT || 4000;
 
+// Motor de plantillas
+app.set('view engine', 'ejs');
+
 // Middleware
 app.use(morgan('dev'));
 app.use(cors());
@@ -22,6 +25,9 @@ app.use(express.json());
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Rutas
+app.use(turnosRoutes);
 
 // Listen
 app.listen(PORT, () => {
